@@ -1,7 +1,5 @@
 package com.techtitans.ecommerce.entities.concretes;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,29 +11,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
-public class Product {
-
+@Entity
+@Table(name = "normalUser")
+public class User {
+	
 	@Id
-	@Column(name = "product_id")
+	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "title")
-	private String title;
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "email")
+	private String email;
+	
+	
 
-	@Column(name = "description")
-	private String description;
-	
-	@Column(name = "quantity")
-	private int quantity;
-	
-	@Column(name = "price")
-	private double price;
-	
-	@Column(name = "images")
-	private List<String> images;
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.techtitans.ecommerce.business.abstracts.ProductService;
+import com.techtitans.ecommerce.business.request.AddProductRequest;
 import com.techtitans.ecommerce.business.responses.ProductGetAllResponse;
 import com.techtitans.ecommerce.core.util.mappers.ModelMapperService;
 import com.techtitans.ecommerce.dataAccess.abstracts.ProductRepository;
@@ -25,7 +26,14 @@ public class ProductManager implements ProductService{
 		List<Product> products = this.productRepository.findAll();
 		List<ProductGetAllResponse> productsResponse = products.stream()
 				.map(product -> this.modelMapperService.forResponse().map(product, ProductGetAllResponse.class)).toList();
-		return null;
+		return productsResponse;
+	}
+
+	@Override
+	public void add(AddProductRequest addProductRequest) {
+		Product product = this.modelMapperService.forRequest().map(addProductRequest, Product.class);
+		this.productRepository.save(product);
+		
 	}
 	
 }

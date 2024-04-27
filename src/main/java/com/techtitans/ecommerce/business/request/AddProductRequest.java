@@ -1,4 +1,4 @@
-package com.techtitans.ecommerce.business.responses;
+package com.techtitans.ecommerce.business.request;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductGetAllResponse {
-
-	private Integer id;
+public class AddProductRequest {
+	
 	private String title;
 	private String description;
 	private int quantity;
 	private double price;
 	private List<String> images;
+
 }
