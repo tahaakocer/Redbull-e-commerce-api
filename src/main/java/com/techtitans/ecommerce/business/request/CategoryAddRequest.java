@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CategoryAddRequest {
 	
-	private String name;
+	private String title;
 	private String image;
 
 }

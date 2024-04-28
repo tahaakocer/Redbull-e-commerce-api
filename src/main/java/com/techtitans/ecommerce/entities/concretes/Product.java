@@ -32,14 +32,29 @@ public class Product {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "quantity")
-	private int quantity;
-	
 	@Column(name = "price")
 	private double price;
 	
-	@Column(name = "images")
-	private List<String> images;
+	@Column(name = "discount_percentage")
+	private double discountPercentage;
+	
+	@Column(name = "rating")
+	private double rating;
+	
+	@Column(name = "stock")
+	private Integer stock;
+	
+	@Column(name ="brand")
+	private String brand;
+	
+	@Column(name = "thumbnail")
+	private String thumbnail;
+	
+	@Column(name = "seller_name")
+	private String sellerName;
+	
+	@Column(name = "seller_tell")
+	private String sellerTell;
 	
 	@ManyToOne()
 	@JoinColumn(name = "category_id")

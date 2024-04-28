@@ -20,11 +20,6 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
-	@GetMapping()
-	public String status() {
-		return "Server is running";
-	}
-
 	@GetMapping("/getAll")
 	public ResponseEntity<List<ProductGetAllResponse>> getAll(){
 		return ResponseEntity.ok(this.productService.getAll());
