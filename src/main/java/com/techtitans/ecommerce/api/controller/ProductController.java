@@ -30,5 +30,11 @@ public class ProductController {
 		this.productService.add(addProductRequest);
 		return ResponseEntity.ok("Ürün eklendi");
 	}
+	
+	@GetMapping("/getFirstFour")
+	public ResponseEntity<List<ProductGetAllResponse>> getFirstFour(){
+		return ResponseEntity.ok(this.productService.findFirstFourProducts());
+	}
+	
 
 }

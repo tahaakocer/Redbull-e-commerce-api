@@ -10,5 +10,6 @@ public interface ProductService {
 	List<ProductGetAllResponse> getAll();
 	
 	void add(AddProductRequest addProductRequest);
+	List<ProductGetAllResponse> findFirstFourProducts();
 	
 }

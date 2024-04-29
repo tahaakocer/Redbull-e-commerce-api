@@ -35,5 +35,14 @@ public class ProductManager implements ProductService{
 		this.productRepository.save(product);
 		
 	}
+
+	@Override
+	public List<ProductGetAllResponse> findFirstFourProducts() {
+		List<Product> products = this.productRepository.findFirstFourProducts();
+		List<ProductGetAllResponse> productsResponse = products.stream()
+				.map(product -> this.modelMapperService.forResponse().map(product, ProductGetAllResponse.class)).toList();
+		return productsResponse;
+	
+	}
 	
 }

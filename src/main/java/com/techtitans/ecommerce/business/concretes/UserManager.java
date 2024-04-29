@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.techtitans.ecommerce.business.abstracts.UserService;
 import com.techtitans.ecommerce.business.request.UserLoginRequest;
 import com.techtitans.ecommerce.business.request.UserRegisterRequest;
+import com.techtitans.ecommerce.business.responses.UserGetResponse;
 import com.techtitans.ecommerce.core.util.mappers.ModelMapperService;
 import com.techtitans.ecommerce.core.util.payload.LoginMessage;
 import com.techtitans.ecommerce.dataAccess.abstracts.UserRepository;
@@ -54,6 +55,12 @@ public class UserManager implements UserService{
         }else {
             return new LoginMessage("Email not exits", false);
         }
+	}
+	@Override
+	public UserGetResponse getByEmail(String email) {
+		
+		User user = this.userRepository.findByEmail(email);
+		return this.modelMapperService.forResponse().map(user, UserGetResponse.class);
 	}
 
 }
